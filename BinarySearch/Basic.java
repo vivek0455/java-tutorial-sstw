@@ -24,6 +24,27 @@ public class Basic {
     }
 
 
+    //binart Search
+
+    public static int findElementBinary(int[] arr, int n, int target){
+
+        int left = 0;
+        int right = n-1;
+
+        while(left <=right){
+            int mid =  (left + right)/2;
+
+            if(arr[mid]== target)return mid;
+
+            else if(arr[mid] >target){
+                right =  mid-1; //2
+            }else{
+                left = mid+1; 
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         Scanner sc =  new Scanner(System.in);
 
@@ -48,10 +69,19 @@ public class Basic {
 
 
         int index = findElement(arr, n, target);
+        
         if(index ==-1){
             System.out.println("Element not found in the array");
         }else{
             System.out.println("Element found at index " + index);
+        }
+
+
+        int indexBinary = findElementBinary(arr, n, target);
+        if(indexBinary == -1){
+            System.out.println("Element not found in the array");
+        }else{
+            System.out.println("Element found at index vai Binary Search : " + indexBinary);
         }
     }
 }
